@@ -15,7 +15,7 @@ namespace Conference.Models
         public String Title { get; set; }
 
         [Required()]
-        [DataType(DataType.MultiLineText)]
+        [DataType(DataType.MultilineText)]
         public String Abstract { get; set; }
 
         public Int32 SpeakerID { get; set; }
