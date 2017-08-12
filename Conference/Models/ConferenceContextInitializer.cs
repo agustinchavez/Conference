@@ -8,7 +8,7 @@ namespace Conference.Models
 {
     public class ConferenceContextInitializer : DropCreateDatabaseAlways<ConferenceContext>
     {
-        public override void Seed(ConferenceContext context)
+        protected override void Seed(ConferenceContext context)
         {
             context.Sessions.Add(
                 new Session()
@@ -22,6 +22,7 @@ namespace Conference.Models
                         EmailAddress = "agustin@agustin.com"
                     })
                 });
-        }
+            context.SaveChanges();
+        } 
     }
 }
