@@ -101,6 +101,7 @@
     <Compile Include="Models\ConferenceContext.cs" />
     <Compile Include="Models\ConferenceContextInitializer.cs" />
     <Compile Include="Controllers\SessionController.cs" />
+    <Compile Include="Controllers\SpeakerController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />
