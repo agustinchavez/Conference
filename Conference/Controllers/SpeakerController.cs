@@ -3,19 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Conference.Models;
 
 namespace Conference.Controllers
 {
     public class SpeakerController : Controller
     {
+        private ConferenceContext db = new ConferenceContext();
+
         public ActionResult Index()
         {
-            return View ();
+            return View (db.Speakers.ToList());
         }
 
-        public ActionResult Details(int id)
+        public ActionResult Details(int id = 0)
         {
-            return View ();
+            Speaker speaker = db.Speakers.Find(id);
+            if (speaker == null)
+            {
+                return HttpNotFound();
+            }
+            return View(speaker);
         }
 
         public ActionResult Create()
@@ -33,9 +41,14 @@ namespace Conference.Controllers
             }
         }
         
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id = 0)
         {
-            return View ();
+            Speaker speaker = db.Speakers.Find(id);
+            if(speaker == null)
+            {
+                return HttpNotFound();
+            }
+            return View(speaker);
         }
 
         [HttpPost]
